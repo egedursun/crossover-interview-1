@@ -1,0 +1,27 @@
+Real Work Assignment - AI Augmented Feature Development
+Make a copy of this document in Google Docs and fill in the following sections. You can leave the instructions where they are and just fill in the lines below. Change the sharing settings such that anyone with the link can view the document.
+
+Screenshots
+Include a few screenshots in which you show that the acceptance tests pass.
+
+Acceptance Test Step
+Screenshot
+#3. When you open the “Roster” page, you see all the Conduit users with sorted stats,
+
+
+#4. When you create a new article (show the create page)
+
+
+#6. When you open the “Roster” page, you see your total number of articles incremented.
+
+
+Final Code
+Please follow the instructions in the README to create a git patch of your changes and link it here. Please ensure that the patch contains all your changes and that the link is publicly accessible. Please DO NOT fork the input repository or create a fresh GitHub repository out of it. Instead, follow the instructions to create a patch from your local repository to share your work.
+
+Patch File Shareable Link
+
+
+ChatGPT Chats
+Please include shareable links to your AI sessions/chats (e.g., instructions for ChatGPT). Make sure that they are publicly accessible.
+
+Shareable Chat Links

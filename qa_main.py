@@ -72,7 +72,10 @@ if __name__ == "__main__":
         input_query += f"\n *** ENHANCE, IMPROVE, AND ELABORATE ON THE PROBLEM-{i+1}'s SOLUTION, AND PROVIDE " \
                        f"MUCH MORE DETAIL AND IMMENSE DEPTH WHILE" \
                        "PROVIDING THE ANSWER. DO NOT TRY TO PROVIDE A SHORT ANSWER, AS LONG AS YOU ARE GIVING" \
-                       "IMPORTANT OR POTENTIALLY IMPORTANT INFORMATION, YOU MUST INCLUDE IT IN YOUR RESPONSE ***\n"
+                       "IMPORTANT OR POTENTIALLY IMPORTANT INFORMATION, YOU MUST INCLUDE IT IN YOUR RESPONSE" \
+                       "IF YOU DIDN'T SHARE THE SOLUTION'S CODE EXPLICITLY, MAKE SURE YOU PROVIDE THE SOLUTION CODE" \
+                       "EXPLICITLY, AS MUCH AS POSSIBLE, THIS IS VERY IMPORTANT FOR BOTH FEATURE AND DEBUGGING TASKS." \
+                       " ***\n"
 
         # send the query to the client
         improvement = client.get_response(input_query, "")

@@ -1,0 +1,60 @@
+AI Augmented Feature Development
+Real Work Assignment
+
+About this Assignment
+In this assessment, you will be presented with a realistic task that closely resembles issues you may face on the job. Your challenge in this assignment is to act as a mentor for and guide ChatGPT to extend an existing project with a new feature. Your submission should not reflect the capabilities of the AI but should showcase your skills in guiding and leveraging it to fulfill the given requirements.
+
+Make sure to provide context to the AI with your knowledge and even excerpts from online docs, ensuring that the output is technically sound and adheres to typical coding standards and practices. Ultimately, the solution generated must be something you are comfortable attaching your name to and should represent a joint effort between your expertise and the AI’s capabilities.
+
+We believe that AI can enhance engineers' productivity, bridging knowledge gaps in unfamiliar tech stacks. However, a deep understanding of core software engineering concepts is essential, as it can counterbalance AI's potential oversights. This assessment uses a stack similar to our projects and we welcome you to leverage generative AI to fill any knowledge gaps. To help in this regard, we provide an example chat to introduce you to key technology-specific concepts. If you believe success hinges primarily on familiarity with specific technologies, this role may not align with your approach.
+
+Background
+In the bustling digital age, where information is plentiful, Conduit emerged as a response to the overwhelming demand for authentic, personal, and insightful content. As the name suggests, Conduit aims to be a channel – a conduit – connecting passionate writers with eager readers. Platform Features:
+Personal Profiles: Writers can curate their profiles, showcasing their portfolio, credentials, and areas of expertise.
+Custom Feeds: Readers can customize their feeds based on topics, writers, or curated editor picks, ensuring a tailored reading experience.
+Engagement Tools: Beyond just reading, users can engage with content through comments, likes, and shares, fostering a community of discourse.
+Writing Workshops: Conduit regularly hosts digital workshops, helping budding writers hone their craft and connect with industry experts.
+
+Your Work
+You will need to:
+Create your submission document by making a copy of this template and setting the sharing permissions so anyone with the link can view the document.
+Follow the README of the current code to get it running.
+Please do not fork this repository or create a fresh GitHub repository out of it.
+We strongly recommend using Gitpod to quickly set up your development environment.
+Do NOT delete your environment/workspace after this assessment - follow-up assessments may use the same codebase.
+Analyze the code and take a look at the feature described below.
+Use ChatGPT to perform most (90% or more) of the research, design, code adjustments, writing new code, etc. This assignment works best with GPT 4. If you do not have access to GPT 4, we can provide it to you for up to 3 days, while you complete the assessment - request one here.
+Perform the necessary code adjustments to fulfill the requirements of the feature.
+Create a local commit with your changes and follow the README instructions to create a git patch from your local repository to share your work.
+Fill in the submission document. Make sure to share the ChatGPT chat links and your code changes patch file.
+Capture a few screenshots that show that the acceptance tests pass.
+
+Grading
+Your work will be graded along the following criteria:
+Correctness & Completeness: The final code should be functional, produce the desired output without significant errors, defects, or limitations, and address all the requirements, with minimal inconsistencies between requirement specifications and outputs (e.g., related to behavior, formatting, etc.).
+Code Quality: The code to fix the issues should be clean, efficient, consistent with the provided code, respect the existing architecture and responsibility decomposition, and adhere to typical SOLID coding practices, REST API design principles, and relational database best practices.
+AI Usage: The AI should be used to its fullest extent, by giving appropriate context, clear inputs, and instructions.
+
+Feature: The Conduit Roster
+
+Summary: As a reader, I want to view a rank-ordered list of authors (based on the number of favorites received on their articles), such that I can find and follow the most popular authors on the site.
+
+Requirements:
+[Already Done] Create a new Roster page and link it in the top navigation after the “Home” page link.
+On this page, include the following:
+A “Conduit Roaster” header,
+A table containing the stats for each user as described below.
+The stats would contain:
+The user name & profile link,
+The total number of articles authored (zero if none),
+The total number of favorites received on their articles (zero if none),
+The date of their first posted article (empty if no article was posted yet).
+This list should be statically sorted based on the number of favorites.
+
+Acceptance Test:
+Given that you are logged in (any user),
+When you open the “Roster” page,
+[Screenshot] Then you see all the Conduit users with correct stats sorted correctly,
+[Screenshot] When you create a new article,
+And you open the “Roster” page,
+[Screenshot] Then you see your total number of articles incremented accordingly.
