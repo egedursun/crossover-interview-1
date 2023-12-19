@@ -1,0 +1,50 @@
+Real Work Assignment - AI Augmented Defect Resolution
+Make a copy of this document in Google Docs and fill in the following sections. You can leave the instructions where they are and just fill in the lines below. Change the sharing settings such that anyone with the link can view the document.
+
+Screenshots
+Include a few screenshots in which you show that the acceptance tests pass.
+
+Acceptance Test Step
+Screenshot
+#2. There is no “testing” tag on the home page initially
+#3. Create a new article with the following tags: coding, testing (show the create page)
+#6. When you open the global feed, both tags are visible for your post
+#8. When you refresh the site and open the home page, the new “testing” tag is visible
+
+
+Problem 1
+Please copy-paste the final answer that you obtained from the AI for each question. The chat interface has a copy button that you can use to copy each message in Markdown format.
+
+Question
+Answer (copy-paste from AI)
+What is the underlying issue that causes this problem to occur?
+
+In which component (file) of this project should this problem be fixed?
+
+How do we adjust the existing code of that component to fix the issue?
+
+
+Problem 2
+Please copy-paste the final answer that you obtained from the AI for each question. The chat interface has a copy button that you can use to copy each message in Markdown format.
+
+Question
+Answer (copy-paste from AI)
+What is the underlying issue that causes this problem to occur?
+
+
+In which component (file) of this project should this problem be fixed?
+
+
+How do we adjust the existing code of that component to fix the issue?
+
+
+Final Code
+Please follow the instructions in the README to create a git patch of your changes and link it here. Please ensure that the patch contains all your changes and that the link is publicly accessible. Note that we do NOT have access to your Gitpod environment. Any work that you do must be reflected in this document.
+
+Patch File Shareable Link
+
+
+GPT Chats
+Export the chats that led you to the answers, upload the JSON files to Google Drive, and share the links. Make sure that the links are publicly accessible.
+
+Chat Export Links

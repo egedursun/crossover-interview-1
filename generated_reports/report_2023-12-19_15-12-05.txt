@@ -1,0 +1,68 @@
+Based on the provided requirements specifications and code repository metadata, let's address the Defect: "Fix the tags when a new post is created".
+
+## Problem 1: Tags are broken up into individual characters on the post
+
+### Detect the root cause
+To solve this, we need to inspect how tags are being processed when a new post is created. This will likely involve looking at the API endpoint that handles article creation and the associated service or controller logic that processes the tags.
+
+### Identify the affected component
+The affected component is likely in the Article module, specifically within the logic that handles the creation of a new article. Look for a file like `article.controller.ts` or possibly `article.service.ts`.
+
+### Solve the issue
+Modify the logic where the tags are processed so that they are split by commas and trimmed for whitespace, instead of splitting each tag into individual characters. This could look something like:
+
+```typescript
+// In article.service.ts or article.controller.ts
+
+// Original faulty code might be splitting a string directly
+// const tags = articleData.tagList.split(''); // Incorrect
+
+// Adjusted code should split by comma and trim whitespace
+const tags = articleData.tagList.split(',').map(tag => tag.trim());
+```
+
+## Problem 2: New tags are not shown on the home page under “Popular Tags”, even after a page refresh
+
+### Detect the root cause
+There should be a synchronization issue between the tag creation process and the retrieval/display in the frontend. This could involve both the backend for the tag creation and persistence, as well as the frontend for fetching and displaying tags.
+
+### Identify the affected component
+For the backend, check the `TagService` or `TagController` in `tag.service.ts` or `tag.controller.ts` to ensure the tags are correctly persisted. For the frontend, check components that fetch and display tags such as `home.component.ts` or a service that fetches tags.
+
+### Solve the issue
+Make sure that when a new tag is created, it is properly saved in the database and the endpoint to fetch tags for the Home page is returning the updated list of tags. There should be a method for creating a new tag if it doesn't exist.
+
+For the backend, ensure the Tag entity is being created and saved, something like:
+
+```typescript
+// In tag.service.ts
+
+public async createTag(name: string): Promise<Tag> {
+  let tag = await this.tagRepository.findOne({ name });
+  if (!tag) {
+    tag = new Tag();
+    tag.name = name;
+    await this.em.persistAndFlush(tag);
+  }
+  return tag;
+}
+```
+
+For the frontend, ensure that the popular tags are updated by making a new request after a successful article creation:
+
+```typescript
+// In home.component.ts when an article is created successfully
+
+this.tagService.getPopularTags().subscribe(tags => {
+  this.popularTags = tags;
+});
+```
+
+## Acceptance Tests
+To verify that the tags issue is resolved, the acceptance test cases would include:
+
+1. Create a new article with the tags "coding, testing". Ensure the tags are saved as two separate tags, not individual characters.
+2. Refresh the Home page and check if the "testing" tag, which is new, appears under "Popular Tags".
+3. Click the "testing" tag on the Home page and verify that the new post appears and is filtered by the tag.
+
+Please try adjusting the code as per the solutions, run the application and check if the tags behave as expected based on the acceptance test cases.

@@ -1,0 +1,76 @@
+'''
+
+AI Augmented Defect Resolution
+Real Work Assignment
+
+About this Assignment
+In this assessment, you will be presented with a realistic task that closely resembles issues you may face on the job. Your challenge in this assignment is to act as a mentor for and guide GPT to determine the root cause of a defect and then fix it. Your submission should not reflect the capabilities of the AI but should showcase your skills in guiding and leveraging it to fulfill the given requirements.
+
+Make sure to provide instructions and context to the AI based on your knowledge, ensuring that the output is technically sound and adheres to typical engineering standards and practices. Ultimately, the solution generated must be something you are comfortable attaching your name to and should represent a joint effort between your expertise and the AI’s capabilities.
+
+We believe that AI can enhance engineers' productivity, bridging knowledge gaps in unfamiliar tech stacks. However, a deep understanding of core software engineering concepts is essential, as it can counterbalance AI's potential oversights. This assessment uses a stack similar to our projects and we welcome you to leverage AI to fill any knowledge gaps. If you believe success hinges primarily on familiarity with specific technologies, this role may not align with your approach.
+
+Your Work
+You will need to:
+Create your submission document by making a copy of this template and setting the sharing permissions so anyone with the link can view the document.
+Follow the README of the current code to get it running.
+Please do not fork this repository or create a fresh GitHub repository from it.
+Follow-up assessments may use the same codebase; we recommend not cleaning your workspace until you finish all assessments.
+Analyze the code and look at the defect described below. Use GPT to answer the questions below.
+Imagine that GPT is a “junior” with little context about the project, but good general technical knowledge.
+Your job is to mentor this “junior” to answer the following questions together.
+Pass instructions and any needed information to the “junior” (e.g., engineering best practices, guidelines, code snippets, database contents, network request payloads, error logs, online documentation snippets, etc.).
+Use this GPT chat interface; log in using your GitHub account. To keep the assessment short, we have included built-in prompts with general information about the project. Feel free to leverage these prompts as needed.
+Adjust the code based on the obtained answers and fill in the submission document.
+Capture screenshots that show that the acceptance tests pass.
+Copy-paste the final answers produced by GPT for each question.
+Create a local commit with your changes and follow the README instructions to create a git patch from your local repository.
+Export the chats that led you to the answers, upload the JSON files to Google Drive, and share the links.
+
+Questions to answer for each problem:
+Detect the root cause. What is the underlying issue that causes this problem to occur? The answer MUST contain the exact technical root cause.
+Identify the affected component: In which project component should this problem be fixed? The answer MUST contain the exact file name.
+Solve the issue: How do we adjust the existing code of that component to fix the issue? The answer MUST contain the adjusted code.
+
+Grading
+Your work will be graded along the following criteria:
+Correctness: The solution should accurately identify the root cause of each problem and provide a fix that completely solves the problem, without any edge cases or regressions.
+Code Quality: The code to fix the issues should be clean, efficient, consistent with the provided code, respect the existing architecture and responsibility decomposition, and adhere to typical SOLID coding practices, REST API design principles, and relational database best practices.
+AI Usage: The AI should be guided properly, by giving appropriate context, clear inputs, instructions, and feedback.
+
+Background
+In the bustling digital age, where information is plentiful, Conduit emerged as a response to the overwhelming demand for authentic, personal, and insightful content. As the name suggests, Conduit aims to be a channel – a conduit – connecting passionate writers with eager readers. Platform features:
+Personal Profiles: Writers can curate their profiles, showcasing their portfolio, credentials, and areas of expertise.
+Custom Feeds: Readers can customize their feeds based on topics, writers, or curated editor picks, ensuring a tailored reading experience.
+Engagement Tools: Beyond just reading, users can engage with content through comments, likes, and shares, fostering a community of discourse.
+
+Defect: Fix the tags when a new post is created
+Summary: As a user, I want to tag articles such that readers can find my articles more easily.
+
+Current Behavior:
+When creating a new article:
+
+Problem 1: the tags are broken up into individual characters on the post:
+
+Problem 2: new tags  are not shown on the home page under “Popular Tags”, even after a page refresh:
+
+
+Expected Behavior:
+Users can enter tags in a comma-separated list in the “tag” form field.
+The values are split by commas and trimmed for whitespace.
+Any tags that do not exist yet from the list are created and visible on the home page (after refresh).
+Articles can be filtered based on the tags.
+
+Acceptance Test:
+Given that you log in with the John user,
+[Screenshot] And that there is no “testing” tag yet on the home page,
+[Screenshot] When you create a new article with the following tags: coding, testing
+Then the article is successfully created.
+When you open the global feed,
+[Screenshot] Then both tags are visible for your post,
+When you refresh the site and open the home page,
+[Screenshot] Then the new “testing” tag is visible,
+When you click the “testing” tag,
+Then you see the new post.
+
+'''
