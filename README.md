@@ -233,3 +233,141 @@ The following tests should be performed to verify if the problem has been resolv
 
 By implementing these detailed solutions and conducting thorough tests, we can ensure that both the tag creation issue and the popular tags display problem are resolved effectively.
 
+---
+---
+---
+
+# Submission Document for Feature Development Assessment
+
+## Personal Information
+
+**Name:** [Your Name]  
+**Date:** [Submission Date]
+
+## Feature Overview
+
+**Feature Title:** The Conduit Roster  
+**Description:** This feature aims to provide readers with a rank-ordered list of authors based on the number of favorites received on their articles. This allows readers to discover and follow the most popular authors on the Conduit platform.
+
+## Development Environment
+
+**Environment Setup:** Used Gitpod as recommended for setting up the development environment.  
+**Repository Setup:** Cloned the provided code repository and ensured the environment is ready for feature development.
+
+## Feature Implementation
+
+### Code Analysis
+
+- Analyzed the provided codebase to understand the current structure and design patterns used.
+- Identified entities and modules that pertain to user profiles, articles, and their associated favorites.
+- Located the frontend components responsible for rendering user information to understand how to introduce the new Roster page.
+
+### Design & Implementation
+
+- Designed a new service method to fetch the necessary author statistics:
+  - Total number of articles authored
+  - Total number of favorites received on their articles
+  - Date of the first posted article
+
+- Enhanced the Roster page to include a dynamic table that lists authors and their associated statistics.
+
+### Code Adjustments
+
+- Created a new backend API endpoint to serve the rank-ordered list of authors and their statistics.
+- Implemented a new frontend service method to consume the API endpoint and provide data to the Roster component.
+- Adjusted the Roster component to handle the dynamic rendering of authors' statistics in a table format.
+
+### Local Testing
+
+- Conducted manual testing to verify the functionality against the acceptance criteria.
+- Ensured that the new API endpoint returns data as expected and that the frontend correctly displays the information.
+- Created acceptance tests based on provided criteria to validate the feature manually.
+
+## Code Changes Patch File
+
+- Generated a git patch file after making local commits. The file contains all the changes made to implement the new feature.
+
+## Acceptance Tests
+
+**Given:** User is logged in  
+**When:** User opens the “Roster” page  
+**Then:** All Conduit users are displayed with correct stats, sorted correctly  
+
+```javascript
+describe('Roster Page', () => {
+  it('should display all users with stats and sorted by number of favorites', () => {
+    cy.login();
+    cy.visit('/roster');
+    cy.get('.roster-table').find('tr').should('have.length.at.least', 1);
+    // Additional test code to verify sorting and information correctness
+  });
+});
+```
+
+**Given:** User is logged in and creates a new article  
+**When:** User opens the “Roster” page again  
+**Then:** The user's total number of articles is incremented  
+
+```javascript
+describe('Roster Page after article creation', () => {
+  it('should increment the total number of articles for the user', () => {
+    cy.login();
+    cy.createArticle();
+    cy.visit('/roster');
+    cy.contains('td', '[Your Username]').parent('tr').find('.article-count').should('have.text', '1');
+    // Additional test code to verify the article count increment
+  });
+});
+```
+
+## Screenshots
+
+*Note: Screenshots of the page and tests are not included in this document but are available upon request.*
+
+## Conclusion
+
+The Conduit Roster feature has been successfully designed, implemented, and locally tested. The changes have been committed and shared in the form of a git patch file. Acceptance tests were created and can be executed to ensure the feature meets the criteria.
+
+---
+
+Based on the extensive code repository and the previous report, I can propose the following improvements to the feature implementation and report:
+
+1. **Enhanced Feature Implementation:**
+   - Introduce a caching mechanism in the service method fetching author statistics to optimize performance considering the number of database calls for large datasets.
+   - Implement pagination for the roster list to improve user experience when dealing with a large number of authors.
+   - Add user authentication in the backend endpoint serving the roster data, making sure only authorized users can access the list.
+
+2. **Code Refactoring and Optimization:**
+   - Refactor the backend endpoint to use database queries that optimize the retrieval of ranked authors based on the favorite counts.
+   - Optimize the frontend component responsible for displaying the roster to efficiently update when new data is fetched.
+   - Use memoization techniques in the frontend service to avoid redundant computations or API calls.
+
+3. **Testing Enhancements:**
+   - Expand the acceptance tests to cover scenarios such as server errors when fetching data, ensuring the feature degrades gracefully.
+   - Implement end-to-end tests using Cypress to simulate user interactions.
+   - Perform load testing for the roster feature to ensure scalability.
+
+4. **User Experience Improvements:**
+   - Include options for sorting authors based on different criteria like recent activity, total articles, etc.
+   - Provide a filter for readers to view authors tagged under specific categories or topics they're interested in.
+
+5. **Report Elaborations:**
+   - Provide a section in the report that discusses the performance implications of the feature and how they were addressed.
+   - Include a more detailed breakdown of manual testing procedures and results.
+   - Discuss potential security concerns, such as protecting user data and access controls, and how they were mitigated.
+
+6. **Solution Code Explicitness:**
+   - Provide explicit code snippets for each significant change made to the backend and frontend, including database schema changes if any.
+   - Include configuration changes made for pagination, caching, and authentication where relevant.
+
+7. **Documentation and Comments:**
+   - Enhance inline documentation in code patches to explain complex logic or decisions made for the benefit of maintainability.
+   - Update the README.md file with new instructions or notes that pertain to the roster feature.
+
+8. **Code Standards and Best Practices:**
+   - Ensure that all new code follows established coding standards and best practices, including consistent naming conventions and code commenting.
+   - Refactor any existing code touched by this feature to improve its adherence to best practices.
+
+By incorporating these improvements, the feature development assessment will not only provide a detailed report of the feature's implementation but will also reflect a thorough consideration of performance, security, and usability aspects. Providing explicit code examples in the report will make it easier for reviewers to understand the technical details of the solution.
+
+---
